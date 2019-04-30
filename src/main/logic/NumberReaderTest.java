@@ -43,7 +43,7 @@ public class NumberReaderTest {
 
     @Test
     void readDocumentTest() {
-        int actual = reader.readDocument()
+        int actual = reader.readDocument(0)
                 .collect(Collectors.toList())
                 .size();
         int unexpected = 8;
@@ -52,6 +52,5 @@ public class NumberReaderTest {
         Assertions.assertNotNull(actual);
         Assertions.assertNotEquals(unexpected, actual);
         Assertions.assertEquals(expected, actual);
-
     }
 }
