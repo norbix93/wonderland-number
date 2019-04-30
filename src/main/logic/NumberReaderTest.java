@@ -43,7 +43,7 @@ public class NumberReaderTest {
 
     @Test
     void readDocumentTest() {
-        int actual = reader.readDocument(0)
+        int actual = reader.readColumn(0)
                 .collect(Collectors.toList())
                 .size();
         int unexpected = 8;
