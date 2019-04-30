@@ -21,7 +21,7 @@ public class MathematicianTest {
             "121212, false",
             "142857, true",
     })
-    void isWonderlandNumberTest(Long number, boolean expected) {
+    void isWonderlandNumberTest(long number, boolean expected) {
         boolean actual = mathematician.isWonderlandNumber(number);
 
         assertNotNull(actual);
