@@ -35,4 +35,17 @@ public class MathematicianTest {
         assertNotNull(actual);
         assertEquals(expected, actual);
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {
+
+            "1, 1, 1",
+            "2, 2, 4",
+            "3, 3, 9",
+    })
+    void multiplyTest(long numberOne, long numberTwo, long expected) {
+        long actual = mathematician.multiply(numberOne, numberTwo);
+
+        assertEquals(expected, actual);
+    }
 }

@@ -8,24 +8,24 @@ public class NumberReader {
 
     private FileReader reader = new FileReader();
 
-    public List<Long> getMultipliers() {
+    protected List<Long> getMultipliers() {
         return readColumn(0)
                 .collect(Collectors.toList());
     }
 
-    public long rangeFrom() {
+    protected long rangeFrom() {
         return readColumn(1)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("No Range-start found."));
     }
 
-    public long rangeTo() {
+    protected long rangeTo() {
         return readColumn(2)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("No Range-end found."));
     }
 
-    public Stream<Long> readColumn(int number) {
+    protected Stream<Long> readColumn(int number) {
         return reader.asStream("main/resources/data.csv")
                 .skip(1)
                 .map(line -> line.split(";"))

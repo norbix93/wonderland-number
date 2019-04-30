@@ -8,7 +8,7 @@ public class Mathematician {
     private QualityManager qualityManager = new QualityManager();
     private NumberReader reader = new NumberReader();
 
-    public long findWonderlandNumber() {
+    protected long findWonderlandNumber() {
         long start = reader.rangeFrom();
         long end = reader.rangeTo();
         return LongStream.rangeClosed(start, end)
@@ -18,7 +18,7 @@ public class Mathematician {
                 .orElseThrow(() -> new NullPointerException("The wonderland number was not found."));
     }
 
-    public boolean isWonderlandNumber(long number) {
+    protected boolean isWonderlandNumber(long number) {
         List<Long> multipliers = reader.getMultipliers();
         for (long multiplier : multipliers) {
             long multiplication = multiply(number, multiplier);
@@ -29,7 +29,7 @@ public class Mathematician {
         return true;
     }
 
-    public long multiply(long firstNumber, long secondNumber) {
+    protected long multiply(long firstNumber, long secondNumber) {
         return firstNumber * secondNumber;
     }
 }
