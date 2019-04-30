@@ -36,11 +36,10 @@ public class QualityManagerTest {
             "121212, 111222",
             "142857, 124578"
     })
-    void sortDigitsTest(Long inputNumber, Long expectedNumber) {
+    void sortDigitsTest(Long inputNumber, String expectedNumber) {
         char[] actual = qualityManager.sortDigits(inputNumber);
 
-        String asString = String.valueOf(expectedNumber);
-        char[] expected = asString.toCharArray();
+        char[] expected = expectedNumber.toCharArray();
 
         assertNotNull(actual);
         assertNotNull(expected);
