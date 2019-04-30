@@ -1,6 +1,5 @@
 package main.logic;
 
-import main.logic.NumberReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

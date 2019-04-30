@@ -9,28 +9,27 @@ public class NumberReader {
     private FileReader reader = new FileReader();
 
     public List<Long> getMultipliers() {
-        return readDocument()
-                .map(column -> Long.valueOf(column[0]))
+        return readDocument(0)
                 .collect(Collectors.toList());
     }
 
     public long rangeFrom() {
-        return readDocument()
-                .map(column -> Long.valueOf(column[1]))
+        return readDocument(1)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("No Range-start found."));
     }
 
     public long rangeTo() {
-        return readDocument()
-                .map(column -> Long.valueOf(column[2]))
+        return readDocument(2)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("No Range-end found."));
     }
 
-    public Stream<String[]> readDocument() {
+    public Stream<Long> readDocument(int columnNumber) {
         return reader.asStream("main/resources/data.csv")
                 .skip(1)
-                .map(line -> line.split(";"));
+                .map(line -> line.split(";"))
+                .map(column -> Long.valueOf(column[columnNumber]));
+
     }
 }
