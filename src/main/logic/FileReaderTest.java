@@ -1,4 +1,4 @@
-package test;
+package main.logic;
 
 import main.logic.FileReader;
 import org.junit.jupiter.api.Assertions;

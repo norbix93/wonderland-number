@@ -1,4 +1,4 @@
-package test;
+package main.logic;
 
 import main.logic.NumberReader;
 import org.junit.jupiter.api.Assertions;
