@@ -14,14 +14,14 @@ public class NumberReader {
                 .collect(Collectors.toList());
     }
 
-    public Long rangeFrom() {
+    public long rangeFrom() {
         return readDocument()
                 .map(column -> Long.valueOf(column[1]))
                 .findFirst()
                 .orElseThrow(()->new NullPointerException("No Range-start found."));
     }
 
-    public Long rangeTo() {
+    public long rangeTo() {
         return readDocument()
                 .map(column -> Long.valueOf(column[2]))
                 .findFirst()

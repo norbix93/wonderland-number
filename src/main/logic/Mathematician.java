@@ -8,7 +8,7 @@ public class Mathematician {
     private QualityManager qualityManager = new QualityManager();
     private NumberReader reader = new NumberReader();
 
-    public Long findWonderlandNumber() {
+    public long findWonderlandNumber() {
         long start = reader.rangeFrom();
         long end = reader.rangeTo();
         return LongStream.rangeClosed(start, end)
