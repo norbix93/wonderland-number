@@ -1,6 +1,5 @@
 package main.logic;
 
-import main.logic.QualityManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
