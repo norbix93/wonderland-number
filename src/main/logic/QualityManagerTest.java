@@ -38,7 +38,6 @@ public class QualityManagerTest {
     })
     void sortDigitsTest(Long inputNumber, String expectedNumber) {
         char[] actual = qualityManager.sortDigits(inputNumber);
-
         char[] expected = expectedNumber.toCharArray();
 
         assertNotNull(actual);
