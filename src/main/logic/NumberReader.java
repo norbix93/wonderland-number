@@ -18,14 +18,14 @@ public class NumberReader {
         return readDocument()
                 .map(column -> Long.valueOf(column[1]))
                 .findFirst()
-                .orElseThrow(NullPointerException::new);
+                .orElseThrow(()->new NullPointerException("No Range-start found."));
     }
 
     public Long rangeTo() {
         return readDocument()
                 .map(column -> Long.valueOf(column[2]))
                 .findFirst()
-                .orElseThrow(NullPointerException::new);
+                .orElseThrow(()->new NullPointerException("No Range-end found."));
     }
 
     public Stream<String[]> readDocument() {

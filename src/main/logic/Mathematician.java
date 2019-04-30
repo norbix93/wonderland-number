@@ -1,7 +1,6 @@
 package main.logic;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 public class Mathematician {
@@ -9,13 +8,14 @@ public class Mathematician {
     private QualityManager qualityManager = new QualityManager();
     private NumberReader reader = new NumberReader();
 
-    public List<Long> findWonderlandNumber() {
+    public Long findWonderlandNumber() {
         long start = reader.rangeFrom();
         long end = reader.rangeTo();
         return LongStream.rangeClosed(start, end)
                 .boxed()
                 .filter(number -> isWonderlandNumber(number))
-                .collect(Collectors.toList());
+                .findFirst()
+                .orElseThrow(()-> new NullPointerException("The wonderland number was not found."));
     }
 
     public boolean isWonderlandNumber(long number) {

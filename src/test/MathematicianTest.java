@@ -19,7 +19,7 @@ public class MathematicianTest {
             "145856, false",
             "111111, false",
             "121212, false",
-            "142857, true"
+            "142857, true",
     })
     void isWonderlandNumberTest(Long number, boolean expected) {
         boolean actual = mathematician.isWonderlandNumber(number);
@@ -30,7 +30,7 @@ public class MathematicianTest {
 
     @Test
     void findWonderlandNumberTest() {
-        Long actual = mathematician.findWonderlandNumber().get(0);
+        long actual = mathematician.findWonderlandNumber();
         long expected = 142857L;
 
         assertNotNull(actual);
