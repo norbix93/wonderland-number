@@ -33,7 +33,7 @@ public class NumberReaderTest {
 
     @Test
     void rangeToTest() {
-        Long actual = reader.rangeTo();
+        long actual = reader.rangeTo();
         long unexpected = 1456L;
         long expected = 166666L;
 
