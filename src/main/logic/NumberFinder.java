@@ -18,7 +18,7 @@ public class NumberFinder {
                 .boxed()
                 .filter(number -> isWonderlandNumber(number))
                 .findFirst()
-                .orElseThrow(() -> new NullPointerException("The wonderland number was not found."));
+                .orElseThrow(() -> new IllegalStateException("The wonderland number was not found."));
     }
 
     boolean isWonderlandNumber(long number) {
