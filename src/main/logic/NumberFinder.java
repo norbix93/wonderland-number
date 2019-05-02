@@ -1,14 +1,17 @@
 package main.logic;
 
+import main.logic.reader.NumberReader;
+import main.logic.verifier.DigitVerifier;
+
 import java.util.List;
 import java.util.stream.LongStream;
 
-public class Mathematician {
+public class NumberFinder {
 
-    private QualityManager qualityManager = new QualityManager();
+    private DigitVerifier digitVerifier = new DigitVerifier();
     private NumberReader reader = new NumberReader();
 
-    protected long findWonderlandNumber() {
+    public long findWonderlandNumber() {
         long start = reader.rangeFrom();
         long end = reader.rangeTo();
         return LongStream.rangeClosed(start, end)
@@ -18,18 +21,18 @@ public class Mathematician {
                 .orElseThrow(() -> new NullPointerException("The wonderland number was not found."));
     }
 
-    protected boolean isWonderlandNumber(long number) {
+    boolean isWonderlandNumber(long number) {
         List<Long> multipliers = reader.getMultipliers();
         for (long multiplier : multipliers) {
             long multiplication = multiply(number, multiplier);
-            if (!qualityManager.hasSameDigits(number, multiplication)) {
+            if (!digitVerifier.hasSameDigits(number, multiplication)) {
                 return false;
             }
         }
         return true;
     }
 
-    protected long multiply(long firstNumber, long secondNumber) {
+    long multiply(long firstNumber, long secondNumber) {
         return firstNumber * secondNumber;
     }
 }

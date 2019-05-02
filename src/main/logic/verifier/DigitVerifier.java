@@ -1,16 +1,16 @@
-package main.logic;
+package main.logic.verifier;
 
 import java.util.Arrays;
 
-public class QualityManager {
+public class DigitVerifier {
 
-    protected boolean hasSameDigits(long inputNumberOne, long inputNumberTwo) {
+    public boolean hasSameDigits(long inputNumberOne, long inputNumberTwo) {
         char[] numberOne = sortDigits(inputNumberOne);
         char[] numberTwo = sortDigits(inputNumberTwo);
         return (Arrays.equals(numberOne, numberTwo));
     }
 
-    protected char[] sortDigits(long input) {
+    char[] sortDigits(long input) {
         String asString = String.valueOf(input);
         char[] asCharArray = asString.toCharArray();
         Arrays.sort(asCharArray);

@@ -1,4 +1,4 @@
-package main.logic;
+package main.logic.reader;
 
 import java.io.IOException;
 import java.net.URI;

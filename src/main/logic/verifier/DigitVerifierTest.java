@@ -1,4 +1,4 @@
-package main.logic;
+package main.logic.verifier;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,9 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class QualityManagerTest {
+public class DigitVerifierTest {
 
-    private QualityManager qualityManager = new QualityManager();
+    private DigitVerifier digitVerifier = new DigitVerifier();
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -21,7 +21,7 @@ public class QualityManagerTest {
             "142857, 758241, true"
     })
     void isWonderlandNumberTest(long numberOne, long numberTwo, boolean expected) {
-        boolean actual = qualityManager.hasSameDigits(numberOne, numberTwo);
+        boolean actual = digitVerifier.hasSameDigits(numberOne, numberTwo);
 
         assertNotNull(actual);
         assertEquals(expected, actual);
@@ -37,7 +37,7 @@ public class QualityManagerTest {
             "142857, 124578"
     })
     void sortDigitsTest(Long inputNumber, String expectedNumber) {
-        char[] actual = qualityManager.sortDigits(inputNumber);
+        char[] actual = digitVerifier.sortDigits(inputNumber);
         char[] expected = expectedNumber.toCharArray();
 
         assertNotNull(actual);

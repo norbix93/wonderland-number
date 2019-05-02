@@ -7,9 +7,9 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class MathematicianTest {
+public class NumberFinderTest {
 
-    private Mathematician mathematician = new Mathematician();
+    private NumberFinder numberFinder = new NumberFinder();
 
     @ParameterizedTest
     @CsvSource(value = {
@@ -21,7 +21,7 @@ public class MathematicianTest {
             "142857, true",
     })
     void isWonderlandNumberTest(long number, boolean expected) {
-        boolean actual = mathematician.isWonderlandNumber(number);
+        boolean actual = numberFinder.isWonderlandNumber(number);
 
         assertNotNull(actual);
         assertEquals(expected, actual);
@@ -29,7 +29,7 @@ public class MathematicianTest {
 
     @Test
     void findWonderlandNumberTest() {
-        long actual = mathematician.findWonderlandNumber();
+        long actual = numberFinder.findWonderlandNumber();
         long expected = 142857L;
 
         assertNotNull(actual);
@@ -44,7 +44,7 @@ public class MathematicianTest {
             "3, 3, 9",
     })
     void multiplyTest(long numberOne, long numberTwo, long expected) {
-        long actual = mathematician.multiply(numberOne, numberTwo);
+        long actual = numberFinder.multiply(numberOne, numberTwo);
 
         assertEquals(expected, actual);
     }

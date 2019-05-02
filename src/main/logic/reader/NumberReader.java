@@ -1,4 +1,4 @@
-package main.logic;
+package main.logic.reader;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,24 +8,24 @@ public class NumberReader {
 
     private FileReader reader = new FileReader();
 
-    protected List<Long> getMultipliers() {
+    public List<Long> getMultipliers() {
         return readColumn(0)
                 .collect(Collectors.toList());
     }
 
-    protected long rangeFrom() {
+    public long rangeFrom() {
         return readColumn(1)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("No Range-start found."));
     }
 
-    protected long rangeTo() {
+    public long rangeTo() {
         return readColumn(2)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("No Range-end found."));
     }
 
-    protected Stream<Long> readColumn(int number) {
+    public Stream<Long> readColumn(int number) {
         return reader.asStream("main/resources/data.csv")
                 .skip(1)
                 .map(line -> line.split(";"))
