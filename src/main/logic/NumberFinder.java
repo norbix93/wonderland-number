@@ -12,9 +12,9 @@ public class NumberFinder {
     private NumberReader reader = new NumberReader();
 
     public long findWonderlandNumber() {
-        long start = reader.rangeFrom();
-        long end = reader.rangeTo();
-        return LongStream.rangeClosed(start, end)
+        long startNumber = reader.rangeFrom();
+        long endNumber = reader.rangeTo();
+        return LongStream.rangeClosed(startNumber, endNumber)
                 .boxed()
                 .filter(number -> isWonderlandNumber(number))
                 .findFirst()
